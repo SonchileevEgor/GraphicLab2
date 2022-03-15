@@ -10,25 +10,31 @@ function drawContent()
 
     canvas.width = window.innerWidth / 2;
     canvas.height = window.innerHeight;
-
     context.fillStyle = '#008080';
+
     context.arc(canvas.width / 2, canvas.height, canvas.height / 2, 0, Math.PI, true);
     context.fill();
 
-    setTimeout(() => {
-        context.drawImage(rocket, canvas.width / 2 - 120, rocketY, rocketSizeW, rocketSizeH);
-    }
-    )
+    context.drawImage(rocket, canvas.width / 2 - rocketSizeW / 2 , rocketY - rocketSizeH / 2, rocketSizeW, rocketSizeH);
 }
 
 drawContent();
 
 function rocketLaunch()
 {
-        setInterval(function() {
+    var id = setInterval(function() {
         rocketY--;
         rocketSizeH -= 0.4;
         rocketSizeW -= 0.4;
+
         drawContent();
+
+        if (rocketSizeH < 100 || rocketSizeW < 100)
+            clearInterval(id);
     })
+}
+
+function refresh()
+{
+    document.location.reload();
 }
