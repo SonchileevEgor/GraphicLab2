@@ -32,3 +32,12 @@
     height: 100px;
     margin-top: -30%;
 }
+
+#clearCanv
+{
+    position: absolute;
+    margin-left: 55%;
+    width: 300px;
+    height: 100px;
+    margin-top: -20%;
+}
